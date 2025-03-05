@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<launch>
+
+    <rosparam file="$(find jethexa_control)/config/jethexa_controllers.yaml" command="load" ns="/jethexa"/>
+
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+                ns="/jethexa" output="screen"  args="joint_state_controller 
+                                                coxa_joint_LF_position_controller
+                                                coxa_joint_LM_position_controller
+                                                coxa_joint_LR_position_controller
+                                                coxa_joint_RF_position_controller
+                                                coxa_joint_RM_position_controller
+                                                coxa_joint_RR_position_controller
+                                                femur_joint_LF_position_controller
+                                                femur_joint_LM_position_controller
+                                                femur_joint_LR_position_controller
+                                                femur_joint_RF_position_controller
+                                                femur_joint_RM_position_controller
+                                                femur_joint_RR_position_controller
+                                                tibia_joint_LF_position_controller
+                                                tibia_joint_LM_position_controller
+                                                tibia_joint_LR_position_controller
+                                                tibia_joint_RF_position_controller
+                                                tibia_joint_RM_position_controller
+                                                tibia_joint_RR_position_controller
+                                                       "/>
+
+</launch>

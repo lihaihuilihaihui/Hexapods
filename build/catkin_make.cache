@@ -1,0 +1,2 @@
+gazebo_terrain_tutorial:jethexa_control:jethexa_description
+-DCATKIN_DEVEL_PREFIX=/home/apolloli/Hexapods/devel -DCMAKE_INSTALL_PREFIX=/home/apolloli/Hexapods/install -G Unix Makefiles

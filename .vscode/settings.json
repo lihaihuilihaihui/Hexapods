@@ -1,0 +1,12 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/apolloli/Hexapods/devel/lib/python3/dist-packages",
+        "/home/apolloli/ROS_Code/hex_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/apolloli/Hexapods/devel/lib/python3/dist-packages",
+        "/home/apolloli/ROS_Code/hex_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ]
+}

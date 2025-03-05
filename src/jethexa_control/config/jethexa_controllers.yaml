@@ -1,0 +1,98 @@
+# 定义关节状态控制器
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50   # 发布频率50Hz
+  ignore_new: false  # 允许动态添加新关节
+  
+# ----------------- 髋关节控制器 -----------------
+coxa_joint_LF_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: coxa_joint_LF
+  pid: {p: 150.0, i: 0.1, d: 20.0}
+
+coxa_joint_LM_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: coxa_joint_LM
+  pid: {p: 150.0, i: 0.1, d: 20.0}
+
+coxa_joint_LR_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: coxa_joint_LR
+  pid: {p: 150.0, i: 0.1, d: 20.0}
+
+coxa_joint_RF_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: coxa_joint_RF
+  pid: {p: 150.0, i: 0.1, d: 20.0}
+
+coxa_joint_RM_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: coxa_joint_RM
+  pid: {p: 150.0, i: 0.1, d: 20.0}
+
+coxa_joint_RR_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: coxa_joint_RR
+  pid: {p: 150.0, i: 0.1, d: 20.0}
+
+# ----------------- 股关节控制器 -----------------
+femur_joint_LF_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: femur_joint_LF
+  pid: {p: 120.0, i: 0.05, d: 15.0}
+
+femur_joint_LM_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: femur_joint_LM
+  pid: {p: 120.0, i: 0.05, d: 15.0}
+
+femur_joint_LR_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: femur_joint_LR
+  pid: {p: 120.0, i: 0.05, d: 15.0}
+
+femur_joint_RF_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: femur_joint_RF
+  pid: {p: 120.0, i: 0.05, d: 15.0}
+
+femur_joint_RM_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: femur_joint_RM
+  pid: {p: 120.0, i: 0.05, d: 15.0}
+
+femur_joint_RR_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: femur_joint_RR
+  pid: {p: 120.0, i: 0.05, d: 15.0}
+
+# ----------------- 胫关节控制器 -----------------
+tibia_joint_LF_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: tibia_joint_LF
+  pid: {p: 80.0, i: 0.02, d: 10.0}
+
+tibia_joint_LM_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: tibia_joint_LM
+  pid: {p: 80.0, i: 0.02, d: 10.0}
+
+tibia_joint_LR_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: tibia_joint_LR
+  pid: {p: 80.0, i: 0.02, d: 10.0}
+
+tibia_joint_RF_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: tibia_joint_RF
+  pid: {p: 80.0, i: 0.02, d: 10.0}
+
+tibia_joint_RM_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: tibia_joint_RM
+  pid: {p: 80.0, i: 0.02, d: 10.0}
+
+tibia_joint_RR_position_controller:
+  type: effort_controllers/JointPositionController
+  joint: tibia_joint_RR
+  pid: {p: 80.0, i: 0.02, d: 10.0}

@@ -1,0 +1,8 @@
+prefix=/home/apolloli/Hexapods/devel
+
+Name: jethexa_controller
+Description: Description of jethexa_controller
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
