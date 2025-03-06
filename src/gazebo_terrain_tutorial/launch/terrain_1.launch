@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="gui" default="true"/>
+  <arg name="world_name" default="terrain_1"/>
+
+  <!-- Robot pose -->
+  <arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="0"/>
+  <arg name="roll" default="0"/>
+  <arg name="pitch" default="0"/>
+  <arg name="yaw" default="0"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find gazebo_terrain_tutorial)/worlds/$(arg world_name).world"/>
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+
+  <!-- Convert an xacro to URDF and put on parameter server -->
+  <param name="robot_description"
+         command="$(find xacro)/xacro $(find jethexa_description)/urdf/jethexa.urdf.xacro" />
+
+  <!-- Spawn the robot from the URDF that was loaded into the robot_description
+       parameter -->
+  <node name="spawn_urdf"
+        pkg="gazebo_ros"
+        type="spawn_model"
+        args="-param robot_description -urdf
+              -x $(arg x) -y $(arg y) -z $(arg z)
+              -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)
+              -model my_husky"/>
+
+  <include file="$(find jethexa_control)/launch/control.launch" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen" />
+  <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+
+  <node name="rviz_jethexa" pkg="rviz" type="rviz" output="screen" args="-d $(find jethexa_description)/rviz/jethexa.rviz" />
+
+
+</launch>
