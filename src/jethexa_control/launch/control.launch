@@ -1,10 +1,51 @@
 <?xml version="1.0"?>
-<launch>
 
-    <rosparam file="$(find jethexa_control)/config/jethexa_controllers.yaml" command="load" ns="/jethexa"/>
+<launch>
+    <arg name="gui" default="true"/>
+    <arg name="world_name" default="terrain_1"/>
+    
+    <!-- Robot pose -->
+    <arg name="x" default="0"/>
+    <arg name="y" default="0"/>
+    <arg name="z" default="2"/>
+    <arg name="roll" default="0"/>
+    <arg name="pitch" default="0"/>
+    <arg name="yaw" default="0"/>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find gazebo_terrain_tutorial)/worlds/$(arg world_name).world"/>
+        <arg name="gui" value="$(arg gui)"/>
+    </include>
+    
+    <param name="robot_description" command="$(find xacro)/xacro $(find jethexa_description)/urdf/jethexa.urdf.xacro"/>
+    
+        <!-- 运行一个 python 脚本来通过 service call 调用 gazebo_ros 以生成一个 URDF机器人 -->
+        <node name="urdf_spawner" 
+          pkg="gazebo_ros" 
+          type="spawn_model" 
+          respawn="false" 
+          output="screen" 
+                  args="-param robot_description -urdf
+              -x $(arg x) -y $(arg y) -z $(arg z)
+              -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)
+              -model /jethexa"/>
+        <!-- step4: 运行joint_state_publisher节点，发布机器人的关节状态  -->
+        <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" ></node>  -->
+
+        <!-- step5: 运行robot_state_publisher节点，发布tf  -->
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"  output="screen" >
+            <param name="publish_frequency" type="double" value="50.0" />
+        </node>
+
+        <!-- <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" /> -->
+
+        <!-- step7-8:运行controller_manager中的spawner,加载并运行controller -->
+        <!-- step7: 加载step5中xxx.yaml定义的控制器参数到参数服务器 -->
+
+    <rosparam file="$(find jethexa_control)/config/jethexa_controllers.yaml" command="load" />
 
     <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-                ns="/jethexa" output="screen"  args="joint_state_controller 
+                ns="//" output="screen"  args="joint_state_controller 
                                                 coxa_joint_LF_position_controller
                                                 coxa_joint_LM_position_controller
                                                 coxa_joint_LR_position_controller
@@ -24,5 +65,7 @@
                                                 tibia_joint_RM_position_controller
                                                 tibia_joint_RR_position_controller
                                                        "/>
+
+    <node name="rviz_jethexa" pkg="rviz" type="rviz" output="screen" args="-d $(find jethexa_description)/rviz/jethexa.rviz" />
 
 </launch>

@@ -18,9 +18,9 @@ class HexapodController:
         self.legs = ['LF', 'LM', 'LR', 'RF', 'RM', 'RR']
         self.controllers = {
             leg: {
-                'coxa': rospy.Publisher(f'/jethexa/coxa_joint_{leg}_position_controller/command', Float64, queue_size=10),
-                'femur': rospy.Publisher(f'/jethexa/femur_joint_{leg}_position_controller/command', Float64, queue_size=10),
-                'tibia': rospy.Publisher(f'/jethexa/tibia_joint_{leg}_position_controller/command', Float64, queue_size=10)
+                'coxa': rospy.Publisher(f'//coxa_joint_{leg}_position_controller/command', Float64, queue_size=10),
+                'femur': rospy.Publisher(f'//femur_joint_{leg}_position_controller/command', Float64, queue_size=10),
+                'tibia': rospy.Publisher(f'//tibia_joint_{leg}_position_controller/command', Float64, queue_size=10)
             } for leg in self.legs
         }
         

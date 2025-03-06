@@ -4,7 +4,7 @@ from std_msgs.msg import Float64
 
 def move_joint(joint_name, angle):
     # 创建发布器（话题名称格式：/控制器名称/command）
-    pub = rospy.Publisher(f'/jethexa/{joint_name}_position_controller/command', Float64, queue_size=10)
+    pub = rospy.Publisher(f'//{joint_name}_position_controller/command', Float64, queue_size=10)
     rospy.sleep(0.1)  # 等待发布器初始化
     pub.publish(angle)
     rospy.loginfo(f"Moving {joint_name} to {angle} rad")
