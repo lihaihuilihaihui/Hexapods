@@ -1,8 +1,0 @@
-prefix=/home/apolloli/Hexapods/install
-
-Name: jethexa_controller_interfaces
-Description: Description of jethexa_controller_interfaces
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: 

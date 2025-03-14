@@ -1,0 +1,2 @@
+set(hexapod_msg_MESSAGE_FILES "/home/apolloli/Hexapods/src/hexapod_msg/msg/footPosition.msg;/home/apolloli/Hexapods/src/hexapod_msg/msg/legAngle.msg;/home/apolloli/Hexapods/src/hexapod_msg/msg/commands.msg;/home/apolloli/Hexapods/src/hexapod_msg/msg/allLegPosition.msg;/home/apolloli/Hexapods/src/hexapod_msg/msg/bodyPos.msg;/home/apolloli/Hexapods/src/hexapod_msg/msg/bodyTwist.msg")
+set(hexapod_msg_SERVICE_FILES "")

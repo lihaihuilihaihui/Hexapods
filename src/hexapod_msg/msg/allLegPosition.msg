@@ -1,0 +1,6 @@
+hexapod_msg/footPosition position_LF
+hexapod_msg/footPosition position_LM
+hexapod_msg/footPosition position_LH
+hexapod_msg/footPosition position_RF
+hexapod_msg/footPosition position_RM
+hexapod_msg/footPosition position_RH

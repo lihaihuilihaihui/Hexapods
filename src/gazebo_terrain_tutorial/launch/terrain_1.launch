@@ -29,9 +29,9 @@
         args="-param robot_description -urdf
               -x $(arg x) -y $(arg y) -z $(arg z)
               -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)
-              -model my_husky"/>
+              -model jethexa"/>
 
-  <include file="$(find jethexa_control)/launch/control.launch" />
+  <!-- <include file="$(find jethexa_control)/launch/control.launch" /> -->
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" output="screen" />
   <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />

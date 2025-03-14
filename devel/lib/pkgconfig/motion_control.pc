@@ -1,0 +1,8 @@
+prefix=/home/apolloli/Hexapods/devel
+
+Name: motion_control
+Description: Description of motion_control
+Version: 0.0.0
+Cflags: -I/home/apolloli/Hexapods/src/motion_control/include
+Libs: -L${prefix}/lib -lmotion_control
+Requires: roscpp rospy std_msgs hexapod_msg

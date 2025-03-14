@@ -1,9 +1,0 @@
-/home/apolloli/Hexapods/install/_setup_util.py
-/home/apolloli/Hexapods/install/env.sh
-/home/apolloli/Hexapods/install/setup.bash
-/home/apolloli/Hexapods/install/local_setup.bash
-/home/apolloli/Hexapods/install/setup.sh
-/home/apolloli/Hexapods/install/local_setup.sh
-/home/apolloli/Hexapods/install/setup.zsh
-/home/apolloli/Hexapods/install/local_setup.zsh
-/home/apolloli/Hexapods/install/.rosinstall
